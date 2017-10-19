@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,6 +10,18 @@
     <RootNamespace>UITextFieldShaker</RootNamespace>
     <AssemblyName>UITextFieldShaker</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <PackageId>UITextFieldShaker</PackageId>
+    <PackageVersion>2017.10.19</PackageVersion>
+    <Authors>SuavePirate</Authors>
+    <PackageLicenseUrl>https://github.com/SuavePirate/UITextFieldShaker/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>SuavePirate</Owners>
+    <PackageProjectUrl>https://github.com/SuavePirate/UITextFieldShaker</PackageProjectUrl>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <Summary>A Xamarin.iOS implementation of a UITextField+Shake extension. </Summary>
+    <PackageTags>Xamarin.iOS Xamarin UITextField Shaker Shake Validation</PackageTags>
+    <Title>UITextField Shaker</Title>
+    <Description>A Xamarin.iOS implementation of a UITextField+Shake extension. Shake any UITextField in your view with a simple Shake() call!</Description>
+    <PackageIconUrl>https://i2.wp.com/alexdunndev.files.wordpress.com/2017/10/xamagonshake.png</PackageIconUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,5 +59,9 @@
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="UITextField_Shake.a" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.targets')" />
 </Project>
